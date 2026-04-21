@@ -1,6 +1,9 @@
 function combineUsers(...arrays) {
   let mergedUsers = [].concat(...arrays);
-  let today = new Date().toISOString().split("T")[0];
+  
+  // Fix: Use US date format MM/DD/YYYY
+  let today = new Date().toLocaleDateString('en-US');
+  
   return {
     users: mergedUsers,
     merge_date: today
